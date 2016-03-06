@@ -3,7 +3,7 @@ Credits are at credits.md in this repo.
 # How to use?
 1. Install python.
 2. Install pip.
-3. Install requests using pip.
+3. Install requests using pip.  
 3.5 (lol). Clone this repository.
 4. Run bridge_variables.py to make sure it works.
 5. Open python.
