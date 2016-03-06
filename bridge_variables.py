@@ -23,8 +23,8 @@ def startprogram():
   print "Enter your password: ",
   PASSWORD = raw_input()
   while True:
-  print 'sleeping.'
-  time.sleep(10)
+    print 'sleeping.'
+    time.sleep(10)
   print 'refreshing.'
   refreshprogram()
   
