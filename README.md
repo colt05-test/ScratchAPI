@@ -1,4 +1,5 @@
 # Bridge Variable Engine
+Credits are at credits.md in this repo.
 # How to use?
 1. Install python.
 2. Install pip.
@@ -9,5 +10,3 @@
 7. Run startprogram()
 8. Enter the information to use (Source project, target project, source cloud variable, target cloud variable, username, and password).
 9. Ready! The code will execute every 10 seconds.  
-----------------------------
-Credits are at credits.md.  
