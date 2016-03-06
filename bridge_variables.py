@@ -18,6 +18,10 @@ TARGETVARIABLE = 'a'
   SOURCEVARIABLE = raw_input()
   print "Enter the target project variable: ",
   TARGETVARIABLE = raw_input()
+  print "Enter your username: ",
+  USERNAME = raw_input()
+  print "Enter your password: ",
+  PASSWORD = raw_input()
   while True:
   print 'sleeping.'
   time.sleep(10)
