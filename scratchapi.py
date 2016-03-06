@@ -149,22 +149,22 @@ class ScratchUserSession:
         cloudToken = self.lib.utils.request(method='GET', path='/projects/' + str(projId) + '/cloud-data.js').text.rsplit('\n')[-28].replace(' ', '')[13:49]
         bc = hashlib.md5()
         bc.update(cloudToken.encode())
-        r = self.lib.utils.request(method='POST', path='/varserver', payload=json.dumps({"token2": bc.hexdigest(), "project_id": str(projId), "value": str(value), "method": "set", "token": cloudToken, "user": self.lib.set.username, "name": '☁ ' + var}))
+        r = self.lib.utils.request(method='POST', path='/varserver', payload=json.dumps({"token2": bc.hexdigest(), "project_id": str(projId), "value": str(value), "method": "set", "token": cloudToken, "user": self.lib.set.username, "name": '\xe2 ' + var}))
         return r
     def _cloud_makevar(self, var, value, projId):
         cloudToken = s.lib.utils.request(method='GET', path='/projects/' + str(projId) + '/cloud-data.js').text.rsplit('\n')[-28].replace(' ', '')[13:49]
         bc = hashlib.md5()
         bc.update(cloudToken.encode())
-        r = self.lib.utils.request(method='POST', path='/varserver', payload=json.dumps({"token2": bc.hexdigest(), "project_id": str(projId), "value": str(value), "method": "create", "token": cloudToken, "user": self.lib.set.username, "name": '☁ ' + var}))
+        r = self.lib.utils.request(method='POST', path='/varserver', payload=json.dumps({"token2": bc.hexdigest(), "project_id": str(projId), "value": str(value), "method": "create", "token": cloudToken, "user": self.lib.set.username, "name": '\xe2 ' + var}))
     def _cloud_getvar(self, var, projId):
         dt = self.lib.utils.request(path='/varserver/' + str(projId)).json()['variables']
-        return dt[[x['name']=='☁'+chr(32)+var for x in dt].index(True)]['value']
+        return dt[[x['name']=='\xe2'+chr(32)+var for x in dt].index(True)]['value']
     def _cloud_getvars(self, projId):
         dt = self.lib.utils.request(path='/varserver/' + str(projId)).json()['variables']
         vardict = {}
         for x in dt:
           xn = x['name']
-          if xn.startswith('☁'+chr(32)):
+          if xn.startswith('\xe2+chr(32)):
             vardict[xn[2:]] = x['value']
           else:
             vardict[xn] = x['value']
@@ -173,7 +173,7 @@ class ScratchUserSession:
         cloudToken = s.lib.utils.request(method='GET', path='/projects/' + str(projId) + '/cloud-data.js').text.rsplit('\n')[-28].replace(' ', '')[13:49]
         bc = hashlib.md5()
         bc.update(cloudToken.encode())
-        return {"token2": bc.hexdigest(), "project_id": str(projId), "value": str(value), "method": "create", "token": cloudToken, "user": self.lib.set.username, "name": '☁ ' + var}
+        return {"token2": bc.hexdigest(), "project_id": str(projId), "value": str(value), "method": "create", "token": cloudToken, "user": self.lib.set.username, "name": '\xe2 ' + var}
     def _tools_update(self):
         self.lib.set.csrf_token = self.lib.utils.session.cookies.get('scratchcsrftoken')
         self.lib.set.sessions_id = self.lib.utils.session.cookies.get('scratchsessionsid')
@@ -297,18 +297,18 @@ class CloudSession:
         self._md5token = md5.hexdigest()
 
     def set_var(self, name, value):
-        self._send('set', {'name': '☁ ' + name, 'value': value})
+        self._send('set', {'name': '\xe2 ' + name, 'value': value})
 
     def create_var(self, name, value=None):
         if value == None:
             value = 0
-        self._send('create', {'name': '☁ ' + name, 'value':value})
+        self._send('create', {'name': '\xe2' + name, 'value':value})
 
     def rename_var(self, oldname, newname):
-        self._send('rename', {'name': '☁ ' + oldname, 'new_name': '☁ ' + newname})
+        self._send('rename', {'name': '\xe2 ' + oldname, 'new_name': '\xe2 ' + newname})
 
     def delete_var(self, name):
-        self._send('delete', {'name':'☁ ' + name})
+        self._send('delete', {'name':'\xe2' + name})
 
     def get_var(self, name):
         return self._scratch.cloud.get_var(name,self._projectId)
@@ -346,7 +346,7 @@ class CloudSession:
                 line = json.loads(line)  # try to parse this entry
                 name = line['name']  # try to extract var name
                 value = str(line['value'])  # should be string anyway?
-                if name.startswith('☁ '):
+                if name.startswith('\xe2 '):
                   updates.append((name[2:], value))  # avoid leading cloud+space chars
                 else:
                   updates.append((name, value))  # probably never happens?
