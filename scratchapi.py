@@ -164,7 +164,7 @@ class ScratchUserSession:
         vardict = {}
         for x in dt:
           xn = x['name']
-          if xn.startswith('\xe2+chr(32)):
+          if xn.startswith('\xe2'+chr(32)):
             vardict[xn[2:]] = x['value']
           else:
             vardict[xn] = x['value']
