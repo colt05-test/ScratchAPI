@@ -26,6 +26,6 @@ def startprogram():
   while True:
     print 'sleeping.'
     time.sleep(10)
-  print 'refreshing.'
-  refreshprogram()
+    print 'refreshing.'
+    refreshprogram()
   
