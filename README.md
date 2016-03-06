@@ -8,6 +8,6 @@
 6. Import bridge_variables.
 7. Run startprogram()
 8. Enter the information to use (Source project, target project, source cloud variable, target cloud variable, username, and password).
-9. Ready! The code will execute every 10 seconds.
+9. Ready! The code will execute every 10 seconds.  
 # Credits  
 Credits are at credits.md.  
