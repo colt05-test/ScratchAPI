@@ -7,6 +7,6 @@ Credits are at credits.md in this repo.
 4. Run bridge_variables.py to make sure it works.
 5. Open python.
 6. Import scratchapi, requests, and bridge_variables.
-7. Run the program (```python bridge_variables.startprogram()```)
+7. Run the program (```bridge_variables.startprogram()```)
 8. Enter the information to use (Source project, target project, source cloud variable, target cloud variable, username, and password).
 9. Ready! The code will execute every 10 seconds.  
