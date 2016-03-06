@@ -5,11 +5,11 @@ SOURCEPROJECT = '000'
 SOURCEVARIABLE = 'a'
 TARGETPROJECT = '000'
 TARGETVARIABLE = 'a'
-  def refreshprogram()
+def refreshprogram()
   s = scratchapi.ScratchUserSession(USERNAME, PASSWORD)
   var = (s.cloud.get_var(a, str(SOURCEPROJECT)))
   s.cloud.set_var(TARGETVARIABLE, var, str(TARGETPROJECT))
-  def startprogram()
+def startprogram()
   print "Enter the source project ID: ",
   SOURCEPROJECT = raw_input()
   print "Enter the target project ID: ",
