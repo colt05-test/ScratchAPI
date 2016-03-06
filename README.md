@@ -1,38 +1,13 @@
-# ScratchAPI
-[Scratch](https://scratch.mit.edu) API Interface
-
-ScratchAPI is a scratch API interface written in [Python](https://www.python.org/).
-
-To get started, install it with `setup.py`
-
-## Logging in
-To use the api, you must log in to your scratch account:
-```python
-import scratchapi
-scratch = scratchapi.ScratchUserSession('Username', 'password')
-```
-Now, you can verify your session to see if you logged in correctly:
-```python
-scratch.tools.verify_session()
-```
-There are a lot of things you can you when you're logged in!
-
-Take ownership of a new project:
-```python
-scratch.lib.utils.request(path='/internalapi/project/new/set/?v=v442&title=Project', server=scratch.PROJECTS_SERVER, method='POST', payload={})
-```
-
-Follow Someone:
-```python
-scratch.users.follow('Bob')
-```
-
-Set a cloud variable:
-```python
-s.cloud.set_var('Variable', 12345, 4453648)
-```
-
-## Credits
-The cloud data interface information was acquired from various topics on the [Scratch Forums](https://scratch.mit.edu/discuss).
-
-[TheLogFather](https://github.com/TheLogFather) helped out with various wrappers and conveniences for cloud data.
+# Bridge Variable Engine
+- How to use?
+1. Install python.
+2. Install pip.
+3. Clone this repository.
+4. Run bridge_variables.py to make sure it works.
+5. Open python.
+6. Import bridge_variables.
+7. Run startprogram()
+8. Enter the information to use (Source project, target project, source cloud variable, target cloud variable, username, and password).
+9. Ready! The code will execute every 10 seconds.
+- Credits
+Credits are at credits.md.
